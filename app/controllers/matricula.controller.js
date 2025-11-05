@@ -4,7 +4,12 @@ const matricula = db.matricula;
 exports.create = async (req, res) => {
   try {
     const matriculaObj = {
-      id_usuario: req.body.id_usuario
+      id_usuario: req.body.id_usuario,
+      descripcion: req.body.descripcion,
+      ciclo: req.body.ciclo,
+      tipo: req.body.tipo,
+      estado: req.body.estado,
+      fecha: req.body.fecha
     };
 
     const matricula = matricula.build(matriculaObj);
