@@ -33,26 +33,6 @@ exports.create = async (req, res) => {
       });
     });
 
-    //AGREGAR OBJETOS DE HUESPED, EMPLEADO BASE
-    if (usuario.role != "admin") {
-      let perfilUsuario = {
-        nombres: req.body.nombres,
-        apellidos: req.body.apellidos,
-        id_usuario: nuevoUsuario.id,
-      };
-
-      switch (usuario.role) {
-        case "huesped":
-          savePerfilUsuario(Huesped, perfilUsuario);
-          break;
-        case "empleado":
-          savePerfilUsuario(Empleado, perfilUsuario);
-          break;
-        default:
-          break;
-      }
-    }
-
     res.send({
       mensaje: "Usuario Registrado",
       correo: nuevoUsuario.correo,
@@ -61,11 +41,6 @@ exports.create = async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 };
-
-async function savePerfilUsuario(modelo, objeto) {
-  const json = modelo.build(objeto);
-  await json.save();
-}
 
 exports.login = async (req, res) => {
   const { correo, contrasena, role } = req.body;
@@ -127,32 +102,13 @@ exports.findById = async (req, res) => {
   if (!usuario) {
     return res.status(404).send({ mensaje: "Usuario no registrado." });
   }
-
-  let datos = null;
-  if (usuario.role == "huesped" || usuario.role == "empleado") {
-    let tablaObjeto = usuario.role + "s";
-    const query = await db.sequelize
-      .query(
-        'SELECT * FROM "' + tablaObjeto + '" u WHERE u."id_usuario" = ' + id,
-        {
-          model: Usuario,
-          mapToModel: true,
-        }
-      )
-      .catch((err) => {
-        return res.status(500).send({
-          mensaje: err.message || "Error al obtener el usuario.",
-        });
-      });
-
-    datos = query[0]?.dataValues;
-  }
+  
   return res.send({
     id: usuario.id,
     correo: usuario.correo,
     role: usuario.role,
-    nombres: datos?.nombres || "Admin",
-    apellidos: datos?.apellidos || "Admin",
+    nombres: usuario?.nombres || "Admin",
+    apellidos: usuario?.apellidos || "Admin",
   });
 };
 
