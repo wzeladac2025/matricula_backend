@@ -142,7 +142,7 @@ module.exports = (app) => {
  *       200:
  *         description: Usuario eliminada
  */
-  router.get("/delete/:id", security.ROLE_TODOS, matricula.delete);
+  router.get("/delete/:id", security.ROLE_TODOS, usuario.delete);
 
   app.use("/api/usuario", router);
 };
