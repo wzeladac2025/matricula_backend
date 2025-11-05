@@ -19,7 +19,10 @@ module.exports = (sequelize, Sequelize) => {
     },
     ciclo: {
       type: Sequelize.INTEGER,
-    },    
+    },  
+    monto: {
+      type: Sequelize.INTEGER,
+    },       
     tipo: {
       type: Sequelize.ENUM("inscripcion"),
     },

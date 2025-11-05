@@ -26,7 +26,10 @@ module.exports = (sequelize, Sequelize) => {
     },
     apellidos: {
       type: Sequelize.STRING,
-    },        
+    },   
+    carne: {
+      type: Sequelize.INTEGER,
+    },         
   });
   return Usuario;
 };

@@ -7,6 +7,7 @@ exports.create = async (req, res) => {
       id_usuario: req.body.id_usuario,
       descripcion: req.body.descripcion,
       ciclo: req.body.ciclo,
+      monto: req.body.monto,
       tipo: req.body.tipo,
       estado: req.body.estado,
       fecha: req.body.fecha

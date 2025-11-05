@@ -27,6 +27,8 @@ module.exports = (app) => {
    *                  type: string
    *                apellidos:
    *                  type: string
+   *                carne:
+   *                  type: number 
    *     responses:
    *       200:
    *         description: usuario creado
@@ -120,6 +122,12 @@ module.exports = (app) => {
    *                role:
    *                  type: string
    *                  enum: [usuario, admin]
+   *                nombres:
+   *                  type: string
+   *                apellidos:
+   *                  type: string
+   *                carne:
+   *                  type: number 
    *     responses:
    *       200:
    *         description: usuario actualizado

@@ -22,6 +22,8 @@ module.exports = (app) => {
    *                  type: string
    *                ciclo:
    *                  type: number
+   *                monto:
+   *                  type: number
    *                tipo:
    *                  type: string
    *                  enum: [inscripcion]
@@ -96,6 +98,8 @@ module.exports = (app) => {
    *                descripcion:
    *                  type: string
    *                ciclo:
+   *                  type: number
+   *                monto:
    *                  type: number
    *                tipo:
    *                  type: string
