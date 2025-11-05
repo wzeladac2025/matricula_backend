@@ -5,7 +5,7 @@ module.exports = (sequelize, Sequelize) => {
     .query("CREATE SEQUENCE MATRICULA_SEQ START WITH 1 INCREMENT BY 1")
     .catch(() => {});
 
-  const Matricula = sequelize.define("Matricula", {
+  const Matricula = sequelize.define("matricula", {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -17,9 +17,15 @@ module.exports = (sequelize, Sequelize) => {
     descripcion: {
       type: Sequelize.STRING,
     },
+    ciclo: {
+      type: Sequelize.INTEGER,
+    },    
     tipo: {
-      type: Sequelize.ENUM("reserva", "restaurante", "bar", "servicio"),
+      type: Sequelize.ENUM("inscripcion"),
     },
+    estado: {
+      type: Sequelize.ENUM("pagada", "no_pagada"),
+    },    
     fecha: {
       type: Sequelize.DATE,
     },

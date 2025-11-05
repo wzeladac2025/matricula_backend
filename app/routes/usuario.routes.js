@@ -8,7 +8,7 @@ module.exports = (app) => {
    * /api/usuario/register/:
    *   post:
    *     summary: Crear usuario
-   *     tags: [Usuario]
+   *     tags: [usuario]
    *     requestBody:
    *       required: true
    *       content:
@@ -29,9 +29,9 @@ module.exports = (app) => {
    *                  type: string
    *     responses:
    *       200:
-   *         description: Usuario creado
+   *         description: usuario creado
    *       400:
-   *         description: Error al crear Usuario
+   *         description: Error al crear usuario
    */
   router.post("/register/", usuario.create);
 
@@ -39,8 +39,8 @@ module.exports = (app) => {
    * @swagger
    * /api/usuario/login/:
    *   post:
-   *     summary: Autenticar Usuario
-   *     tags: [Usuario]
+   *     summary: Autenticar usuario
+   *     tags: [usuario]
    *     requestBody:
    *       required: true
    *       content:
@@ -54,9 +54,9 @@ module.exports = (app) => {
    *                  type: string
    *     responses:
    *       200:
-   *         description: Usuario Autenticado
+   *         description: usuario Autenticado
    *       400:
-   *         description: Error al autenticar Usuario
+   *         description: Error al autenticar usuario
    */
   router.post("/login/", usuario.login);
 
@@ -65,7 +65,7 @@ module.exports = (app) => {
    * /api/usuario/{id}:
    *   get:
    *     summary: Obtener usuario por id
-   *     tags: [Usuario]
+   *     tags: [usuario]
    *     security:
    *        - bearerAuth: []
    *     parameters:
@@ -75,7 +75,7 @@ module.exports = (app) => {
    *     description: Obtener usuario por id
    *     responses:
    *       200:
-   *         description: Usuario encontrado
+   *         description: usuario encontrado
    */
   router.get("/:id", security.ROLE_TODOS, usuario.findById);
 
@@ -84,12 +84,12 @@ module.exports = (app) => {
    * /api/usuario/:
    *   get:
    *     summary: Obtener usuarios
-   *     tags: [Usuario]
+   *     tags: [usuario]
    *     security:
    *        - bearerAuth: []
    *     responses:
    *       200:
-   *         description: Usuarios encontradas
+   *         description: usuarios encontradas
    */
   router.get("/", security.ROLE_TODOS, usuario.findAll);
 
@@ -98,7 +98,7 @@ module.exports = (app) => {
    * /api/usuario/update/{id}:
    *   put:
    *     summary: Actualizar usuario por id
-   *     tags: [Usuario]
+   *     tags: [usuario]
    *     security:
    *        - bearerAuth: []
    *     parameters:
@@ -122,7 +122,7 @@ module.exports = (app) => {
    *                  enum: [huesped, empleado, admin]
    *     responses:
    *       200:
-   *         description: Usuario actualizado
+   *         description: usuario actualizado
    */
   router.put("/update/:id", security.ROLE_TODOS, usuario.update);
 
@@ -140,7 +140,7 @@ module.exports = (app) => {
  *          type: string
  *     responses:
  *       200:
- *         description: Usuario eliminada
+ *         description: usuario eliminada
  */
   router.get("/delete/:id", security.ROLE_TODOS, usuario.delete);
 

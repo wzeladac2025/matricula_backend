@@ -18,6 +18,19 @@ module.exports = (app) => {
    *             properties:
    *                id_usuario:
    *                  type: number
+   *                descripcion:
+   *                  type: string
+   *                ciclo:
+   *                  type: number
+   *                tipo:
+   *                  type: string
+   *                  enum: [inscripcion]
+   *                estado:
+   *                  type: string
+   *                  enum: [pagada, no_pagada]
+   *                fecha:
+   *                  type: string
+   *                  format: date
    *     responses:
    *       200:
    *         description: matricula creada
@@ -80,6 +93,19 @@ module.exports = (app) => {
    *             properties:
    *                id_usuario:
    *                  type: number
+   *                descripcion:
+   *                  type: string
+   *                ciclo:
+   *                  type: number
+   *                tipo:
+   *                  type: string
+   *                  enum: [inscripcion]
+   *                estado:
+   *                  type: string
+   *                  enum: [pagada, no_pagada]
+   *                fecha:
+   *                  type: string
+   *                  format: date
    *     responses:
    *       200:
    *         description: matricula actualizado
