@@ -22,7 +22,7 @@ module.exports = (app) => {
    *                  type: string
    *                role:
    *                  type: string
-   *                  enum: [huesped, empleado, admin]
+   *                  enum: [usuario, admin]
    *                nombres:
    *                  type: string
    *                apellidos:
@@ -119,7 +119,7 @@ module.exports = (app) => {
    *                  type: string
    *                role:
    *                  type: string
-   *                  enum: [huesped, empleado, admin]
+   *                  enum: [usuario, admin]
    *     responses:
    *       200:
    *         description: usuario actualizado
