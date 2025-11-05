@@ -19,6 +19,8 @@ exports.create = async (req, res) => {
       correo: req.body.correo,
       contrasena: hashedPassword,
       role: req.body.role,
+      nombres: req.body.nombres,
+      apellidos: req.body.apellidos
     };
 
     const usuarioJson = Usuario.build(usuario);
